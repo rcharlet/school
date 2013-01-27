@@ -10,7 +10,11 @@ typedef struct data {
 int reverseList(data *head) {
 	// caller must pass in head or this will ophan nodes (and leak memory)
 	data *prev,*node,*next;
-	prev = NULL;
+    
+	// sanity check
+	if (!head) return -1;
+
+	prev = NULL;	//the old head / new tail will get grounded to null
 	node = head;
 	while (node) {
 		next = node->next;
